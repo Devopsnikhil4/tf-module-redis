@@ -1,10 +1,10 @@
-resource "aws_security_group" "allows_docdb" {
+resource "aws_security_group" "allows_redis" {
   name        = "roboshop allows_docdb_internal only"
   description = "allows_docdb_internal only"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
 
   ingress {
-    description = "docdb from VPC"
+    description = "redis from VPC"
     from_port   = 6379
     to_port     = 6379
     protocol    = "tcp"
@@ -12,7 +12,7 @@ resource "aws_security_group" "allows_docdb" {
   }
 
   ingress {
-    description = "docdb from Default VPC"
+    description = "redis from Default VPC"
     from_port   = 6379
     to_port     = 6379
     protocol    = "tcp"

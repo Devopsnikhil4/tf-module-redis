@@ -14,7 +14,7 @@ resource "aws_elasticache_cluster" "redis" {
 # Creates Parameter Group needed for Elastic Cache
 resource "aws_elasticache_parameter_group" "redis_pg" {
   name   = "roboshop-${var.ENV}-redis-pg"
-  family = "redis6.2"
+  family = "redis6.x"
 }
 
 
